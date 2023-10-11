@@ -1,48 +1,52 @@
+const elementList = document.querySelector(".element-list");
+const serverPull = "http://localhost:3000/getElements";
 
-document.getElementById("Capture").addEventListener("submit", function(event) {
+document.addEventListener("DOMContentLoaded", initialize);
 
+async function initialize() {
+    await getPool();
+}
 
-    event.preventDefault(); 
+async function getPool() {
+    try {
+        const response = await fetch(serverPull);
+        if (response.ok) {
+            const data = await response.json();
+            const pool = data.pool;
 
-    const componentName = document.querySelector("#Cname").value;
-    const URL = document.querySelector("#URL").value;
-    const Path = document.querySelector("#Path").value;
+            // Erstelle für jedes Element im Pool einen eigenen Abschnitt
+            pool.forEach(elementData => {
+                const elementSection = document.createElement("div");
+                elementSection.classList.add("element");
 
-    const API = 'http://localhost:3000/newForm'
+                const img = document.createElement("img");
+                img.src = elementData.URL;
+                img.alt = elementData.Name;
+                elementSection.appendChild(img);
 
-    fetch(API, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ componentName, URL, Path })
-    })
-        .then(response => {
-            if (response.ok) {
-                return response.json();
-                if (componentName && URL && Path) {
-                    console.log(componentName, URL, Path);
-                    location.replace("http://localhost:5000/GUI/Capture/index.html");
-                } else {
-                    console.error();("Properties could not be defined");
-                }
-            } else {
-                throw new Error('Fehler bei der Serveranfrage.');
-            }
+                const info = document.createElement("div");
+                info.textContent = elementData.Name;
+                elementSection.appendChild(info);
 
-        })
-    
-        .catch(error => {
-            console.error('Fehler:', error);
-            alert('Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.');
-        });
+                const deleteButton = document.createElement("button");
+                deleteButton.textContent = "Löschen";
+                deleteButton.classList.add("delete-button");
+                elementSection.appendChild(deleteButton);
 
+                const editButton = document.createElement("button");
+                editButton.textContent = "Bearbeiten";
+                editButton.classList.add("edit-button");
+                elementSection.appendChild(editButton);
 
-    });
-    
+                elementList.appendChild(elementSection);
+            });
 
-
-
-
-
-
+        } else {
+            throw new Error('Fehler bei der Serveranfrage.');
+        }
+    } catch (error) {
+        console.error('Fehler:', error);
+        console.log('Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.');
+    }
+}
+// ...

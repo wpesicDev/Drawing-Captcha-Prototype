@@ -9,7 +9,7 @@ const fs = require("fs");
 const path = require("path");
 const session = require("express-session")
 const uuid = require('uuid');
-const { Console } = require('console');
+// const { Console } = require('console');
 
 
 const newForm = new Map()
@@ -239,6 +239,17 @@ async function deleteAllFilesInDir(dirPath) {
         console.log(err);
     }
 }
+
+app.get('/getElements', (req, res) => {
+    initializePool(); 
+    if(pool){
+        res.json({ pool });
+    }
+    else("pool nicht definiert")
+
+    
+});
+
 
 
 app.listen(port, () => {
