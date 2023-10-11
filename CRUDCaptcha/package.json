@@ -1,0 +1,19 @@
+{
+  "name": "guicaptcha",
+  "version": "1.0.0",
+  "description": "Cature a captcha form",
+  "main": "./GUI/Capture/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "fix": "standard --fix",
+    "serve": "live-server --port=5000 --host=localhost"
+
+  },
+  "author": "Williams Pesic",
+  "license": "ISC",
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "express": "^4.18.2",
+    "uuid": "^9.0.1"
+  }
+}

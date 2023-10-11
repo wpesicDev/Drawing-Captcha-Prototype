@@ -1,0 +1,128 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background: rgb(131, 58, 180);
+    background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.captcha-container {
+    max-width: 24%;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 0.6em;
+    padding: 3%;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.5s ease-in;
+    justify-content: center;
+    align-items: center;
+}
+
+.captchta-canvas {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cube {
+    cursor: crosshair;
+}
+.cube:hover {
+    background-color: red;
+    opacity: 0.5;
+}
+.cube.selected {
+    background-color: yellow;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+.canvas {
+    display: grid;
+    grid-template-columns: repeat(31, 1em); 
+    grid-template-rows: repeat(31, 1em); 
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    border: 3px solid black;
+    border-radius: 5px;
+    max-width: 100%; 
+    width: fit-content;
+    background-position: center;
+    background-size: 50%;
+    background-repeat: no-repeat;
+
+}
+
+.canvas > * {
+    border: 1px  black;
+    box-sizing: border-box;
+}
+
+.controls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.submit-button{
+    width: 80%;
+}
+.reset-button{
+    width: 20%;
+}
+
+
+
+button:hover {
+    background-color: #0056b3;
+}
+
+img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+
