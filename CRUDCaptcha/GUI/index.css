@@ -2,13 +2,15 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+
 }
 
 body {
     height: 100vh;
+    width: 100vw;
     background: rgb(131, 58, 180);
     background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
-    color: white;
+    color: black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,8 +18,7 @@ body {
 }
 
 .container {
-    max-width: 50%;
-    width: auto;
+    width: 90%;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -37,38 +38,53 @@ body {
     color: #000000;
 }
 
-.add-button {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+hr{
 }
 
 #addButton {
-    background-color: #0056b3;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007BFF;
     color: white;
     border: none;
-    font-size: 24px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    outline: none;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.underline{
+    width: 100%;
+    margin-top: 1%;
+    border-bottom: 1px solid black;
+    margin-bottom: 1%;
+
 }
 
 #addButton:hover {
     background-color: #003a80;
 }
 
+.element-list{
+    max-width: 100%;
+    width: auto;
+    max-height: 100%;
+    width: auto;
+}
+
 .element {
     display: flex;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 1%;
+    box-sizing: border-box;
 }
 
 .element img {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
+    max-width: 5%;
+    width: auto;
 }
 
 .element button {

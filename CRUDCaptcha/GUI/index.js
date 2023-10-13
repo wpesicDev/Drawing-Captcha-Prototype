@@ -49,4 +49,3 @@ async function getPool() {
         console.log('Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.');
     }
 }
-// ...

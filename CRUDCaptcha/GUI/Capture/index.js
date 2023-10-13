@@ -6,6 +6,7 @@ const controls = document.querySelector(".controls")
 const canvas = document.querySelector('.canvas')
 const toDo = document.querySelector("#toDo")
 const fileInput = document.querySelector("#myFileinput")
+const captchaContainer = document.querySelector(".captcha-container")
 let backgroundImage;
 let validateTrueCubes;
 let validateMinCubes;
@@ -174,10 +175,10 @@ function pushToServer() {
                 toDo.innerHTML = "Captcha Form erfolgreich hinzugefügt"
 
                 imgChangeBtn.innerHTML = "Neues Hinzufügen"
-                imgChangeBtn.setAttribute("onclick", "location.reload()")
+                imgChangeBtn.setAttribute("onclick", "reset()")
                 imgChangeBtn.style.display = "block"
 
-            }
+            } 
             else {
                 console.log("An error occoured while trying to fetch server")
             }
@@ -186,4 +187,10 @@ function pushToServer() {
             console.error('Fetch error:', error);
             alert('An error occurred while making the request. Please try again later.');
         });
+}
+
+function reset(){
+    captchaContainer.style.display = "none";
+    location.reload()
+
 }
