@@ -11,6 +11,7 @@ const cubeMax = document.querySelectorAll(".cube-max")
 const cubeID = document.querySelectorAll("#id")
 let tmpPool = [];
 let pool;
+var isDelete;
 
 document.addEventListener("DOMContentLoaded", initialize);
 
@@ -44,6 +45,7 @@ async function getPool() {
                 const deleteButton = document.createElement("button");
                 deleteButton.textContent = "Löschen";
                 deleteButton.classList.add("delete-button");
+                deleteButton.addEventListener("click", () => deleteComponent(elementData))
                 elementSection.appendChild(deleteButton);
 
                 const editButton = document.createElement("button");
@@ -66,6 +68,13 @@ async function getPool() {
     }
 }
 
+
+function deleteComponent(e){
+    pool = e
+    tmpPool.push(pool)
+    isDelete = true
+    pushToServer()
+}
 
 function getComponent(e) {
     wrapper.style.display = "none"
@@ -145,9 +154,11 @@ function syncCubes() {
             console.log("selected");
         }
     });
+
+    
 }
 
-function pushToServer() {
+function finishUpdate(){
     const validateTrueCubes = Array.from(document.querySelectorAll(".cube-true"))
     .filter(cube => cube.classList.contains("selected"))
     .map(cube => cube.getAttribute("id"));
@@ -162,10 +173,14 @@ function pushToServer() {
   
 
 
-
     tmpPool[0].ValidateF = validateTrueCubes;
     tmpPool[0].validateMinCubes = validateMinCubes;
     tmpPool[0].validateMaxCubes = validateMaxCubes;
+
+    pushToServer()
+}
+
+function pushToServer() {
 
     console.log(tmpPool);
 
@@ -175,7 +190,7 @@ function pushToServer() {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ tmpPool })
+        body: JSON.stringify({ tmpPool, isDelete })
     })
 
     .then(response => {
@@ -187,8 +202,8 @@ function pushToServer() {
     })
     .then(data => {
         if(data.isGood){
-            alert("Daten erfolgreich ans Backend gesendet!")
-            location.reload()
+            alert("Änderungen Erfolgreich am CRUD durchgenommen!")
+            location.replace("./")
 
         }
         else{

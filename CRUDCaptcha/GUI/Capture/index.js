@@ -125,6 +125,7 @@ function Continue() {
         cube.classList.remove("selected")
     })
     updateControlsVisibility();
+    
 
 }
 
@@ -175,8 +176,10 @@ function pushToServer() {
                 toDo.innerHTML = "Captcha Form erfolgreich hinzugefügt"
 
                 imgChangeBtn.innerHTML = "Neues Hinzufügen"
-                imgChangeBtn.setAttribute("onclick", "reset()")
+                imgChangeBtn.setAttribute("onclick", "returnToStart()")
                 imgChangeBtn.style.display = "block"
+                document.querySelector(".returnCRUD").style.display = "block"
+
 
             } 
             else {
@@ -190,7 +193,20 @@ function pushToServer() {
 }
 
 function reset(){
+    // captchaContainer.style.display = "none";
+    cubes.forEach(function (cube) {
+        cube.classList.remove("selected");
+    });
+    updateControlsVisibility();
+
+}
+
+function returnToStart(){
     captchaContainer.style.display = "none";
     location.reload()
+}
 
+function returnCRUD(){
+    location.reload(true)
+    location.replace("../index.html")
 }

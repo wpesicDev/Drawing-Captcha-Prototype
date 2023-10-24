@@ -45,7 +45,9 @@ body {
     flex-direction: column;
     align-items: center;
 }
-
+.returnCRUD{
+    display: none;
+}
 .cube {
     cursor: not-allowed;
 }

@@ -37,7 +37,7 @@ async function initializePool() {
 
 
 initializePool().then(() => {
-    console.log(pool)
+    console.log("pool initialized")
 });
 
 
@@ -123,9 +123,6 @@ app.get('/getImage', (req, res) => {
         };
 
         clientData = req.session.clientSpecificData;
-
-
-
 
         let uniqueFileName;
         let savePath;
@@ -257,28 +254,40 @@ app.get('/getElements', (req, res) => {
 });
 
 app.post('/CRUD', (req, res) => {
+    initializePool();
+    let deletedObject;
     let tmpPool = req.body.tmpPool
     let isGood = false
-
+    console.log("Deleting: ", req.body.isDelete)
     let index
+    console.log(tmpPool)
     if (Array.isArray(tmpPool)) {
         tmpPool.map(x => {
             index = pool.findIndex(b => b.ID === x.ID);
         });
 
-        console.log("vom pool selber: ", pool[index])
 
-        console.log("Änderungen werden vom CRUD übernommen")
+        if (req.body.isDelete) {
+            console.log("Deleting Process")
+            deletedObject = pool.splice(index, 1)
+            console.log("deleted object: ", deletedObject)
+            console.log("current pool: ", pool)
+            
 
-        pool[index].ValidateF = tmpPool[0].ValidateF
-        pool[index].validateMinCubes = tmpPool[0].validateMinCubes
-        pool[index].validateMaxCubes = tmpPool[0].validateMaxCubes
-        pool[index].MaxTolerance = (tmpPool[0].validateMaxCubes.length * 1) / tmpPool[0].ValidateF.length;
-        pool[index].MinTolerance = (tmpPool[0].validateMinCubes.length * 1) / tmpPool[0].ValidateF.length;
+        }else{
 
+            console.log("vom pool selber: ", pool[index])
 
+            console.log("Änderungen werden vom CRUD übernommen")
+    
+            pool[index].ValidateF = tmpPool[0].ValidateF
+            pool[index].validateMinCubes = tmpPool[0].validateMinCubes
+            pool[index].validateMaxCubes = tmpPool[0].validateMaxCubes
+            pool[index].MaxTolerance = (tmpPool[0].validateMaxCubes.length * 1) / tmpPool[0].ValidateF.length;
+            pool[index].MinTolerance = (tmpPool[0].validateMinCubes.length * 1) / tmpPool[0].ValidateF.length;
 
-        console.log("Pool:", pool);
+        }
+
 
         const jsonContent = JSON.stringify(pool, null, 2);
         fs.writeFile('./src/pool.txt', jsonContent, 'utf-8', (err) => {
@@ -298,7 +307,7 @@ app.post('/CRUD', (req, res) => {
 
 
 
-    res.json({isGood})
+    res.json({ isGood })
 
 })
 

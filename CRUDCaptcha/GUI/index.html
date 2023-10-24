@@ -12,7 +12,10 @@
     <div class="wrapper">
         <div class="container">
             <h1 class="title">Willkommen beim CRUD von der Captcha Komponente</h1>
-            <button id="addButton" onclick="location.replace('./Capture/index.html')">Add Element +</button>
+            <div class="controls">
+                <button id="addButton" onclick="location.replace('./Capture/index.html')">Add Element +</button>
+                <button onclick="location.replace('http://localhost:4200/')">Go to Captcha</button>
+            </div>
             <div class="underline"></div>
             <div class="element-list">
             </div>
@@ -2950,7 +2953,7 @@
         <!-- <label for="Cname">Namen Ändern:</label>
         <input type="text" name="Cname" id="" required> -->
         <div class="crud-controls">
-            <button onclick="pushToServer()">Änderungen Speichern</button>
+            <button onclick="finishUpdate()">Änderungen Speichern</button>
             <button onclick="location.reload()">Änderungen Verwerfen</button>
         </div>
     </div>
