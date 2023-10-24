@@ -189,18 +189,24 @@ app.post('/newValidation', (req, res) => {
             if (err) {
                 console.error('Fehler beim Lesen von pool.txt:', err);
             } else {
-                let tmpPool = JSON.parse(data);
+                // let tmpPool = JSON.parse(data);
+                let tmpPool = [
+                    {
+                        "ID": ID,
+                        "Name": componentName,
+                        "URL": backgroundImage,
+                        "MaxTolerance": MaxTolerance,
+                        "MinTolerance": MinTolerance,
+                        "ValidateF": validateTrueCubes,
+                        "validateMinCubes": validateMinCubes,
+                        "validateMaxCubes": validateMaxCubes
 
-                tmpPool.push({
-                    "ID": ID,
-                    "Name": componentName,
-                    "URL": backgroundImage,
-                    "MaxTolerance": MaxTolerance,
-                    "MinTolerance": MinTolerance,
-                    "ValidateF": validateTrueCubes
-                });
+                    }
+
+                ]
 
                 if (pool) {
+                    //Hier findet das Mergen der beiden Arrays statt
                     tmpPool = tmpPool.concat(pool);
                 }
 
@@ -241,15 +247,60 @@ async function deleteAllFilesInDir(dirPath) {
 }
 
 app.get('/getElements', (req, res) => {
-    initializePool(); 
-    if(pool){
+    initializePool();
+    if (pool) {
         res.json({ pool });
     }
-    else("pool nicht definiert")
+    else ("pool nicht definiert")
 
-    
+
 });
 
+app.post('/CRUD', (req, res) => {
+    let tmpPool = req.body.tmpPool
+    let isGood = false
+
+    let index
+    if (Array.isArray(tmpPool)) {
+        tmpPool.map(x => {
+            index = pool.findIndex(b => b.ID === x.ID);
+        });
+
+        console.log("vom pool selber: ", pool[index])
+
+        console.log("Änderungen werden vom CRUD übernommen")
+
+        pool[index].ValidateF = tmpPool[0].ValidateF
+        pool[index].validateMinCubes = tmpPool[0].validateMinCubes
+        pool[index].validateMaxCubes = tmpPool[0].validateMaxCubes
+        pool[index].MaxTolerance = (tmpPool[0].validateMaxCubes.length * 1) / tmpPool[0].ValidateF.length;
+        pool[index].MinTolerance = (tmpPool[0].validateMinCubes.length * 1) / tmpPool[0].ValidateF.length;
+
+
+
+        console.log("Pool:", pool);
+
+        const jsonContent = JSON.stringify(pool, null, 2);
+        fs.writeFile('./src/pool.txt', jsonContent, 'utf-8', (err) => {
+            if (err) {
+                console.error('Fehler beim Speichern der JSON-Datei:', err);
+            } else {
+                console.log('Daten wurden zu pool.txt hinzugefügt.');
+            }
+        });
+        initializePool();
+
+        isGood = true;
+    } else {
+        console.log("Problem mit dem Array")
+    }
+
+
+
+
+    res.json({isGood})
+
+})
 
 
 app.listen(port, () => {
