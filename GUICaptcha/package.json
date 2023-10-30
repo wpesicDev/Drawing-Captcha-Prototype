@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "fix": "standard --fix",
-    "serve": "live-server --port=4200 --host=localhost"
+    "serve": "live-server --port=4200 --host=localhost",
+    "all": "node ../Backend/server.js & live-server --port=4200 --host=localhost"
+    
+
   },
   "author": "Williams Pesic",
   "license": "MIT",

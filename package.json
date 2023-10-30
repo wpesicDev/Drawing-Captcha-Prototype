@@ -1,0 +1,15 @@
+{
+  "name": "drawing-captcha",
+  "version": "1.0.0",
+  "description": "Parent Folder for the whole project",
+  "main": "main-script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"cd ./Backend && node server.js\" \"cd ./CRUDCaptcha && npm run serve\" \"cd ./GUICaptcha && npm run serve\""
+  },
+  "author": "Williams Pesic",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
