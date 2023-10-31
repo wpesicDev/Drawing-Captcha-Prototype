@@ -7,6 +7,9 @@ In the ever-evolving landscape of online security and user verification, the **C
 ### Installation
 1. First of all copy or clone my repository on your device.
 2. To execute all scripts you just have to run the command "npm run start" in the parent folder.
+
+- Captcha GUI localhost:4200
+- Crud GUI localhost:5000/GUI
 ### Key Features
 
 1. **Customizable CAPTCHA:**
