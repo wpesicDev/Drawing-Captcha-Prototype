@@ -7,7 +7,6 @@ In the ever-evolving landscape of online security and user verification, the **C
 ### Installation
 1. First of all copy or clone my repository on your device.
 2. To execute all scripts you just have to run the command "npm run start" in the parent folder.
-3. It should start everything up
 ### Key Features
 
 1. **Customizable CAPTCHA:**
