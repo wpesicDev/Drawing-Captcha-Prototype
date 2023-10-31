@@ -13,6 +13,7 @@ In the ever-evolving landscape of online security and user verification, the **C
 #### Information
 - Captcha GUI localhost:4200
 - Crud GUI localhost:5000/GUI
+- Backend always runs on port 3000
 - For the database i have used a basic txt file just for educational purposes this file is located in Drawing-Captcha/Backend/src/
 
 ### Software Architecture
