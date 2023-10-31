@@ -10,7 +10,7 @@ In the ever-evolving landscape of online security and user verification, the **C
 1. First of all copy or clone my repository on your device, install all packages "npm install".
 2. To execute all scripts you just have to run the command "npm run start" in the parent folder.
 
-#### Information
+### Information
 - Captcha GUI localhost:4200
 - Crud GUI localhost:5000/GUI
 - Backend always runs on port 3000
