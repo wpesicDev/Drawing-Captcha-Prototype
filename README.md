@@ -4,6 +4,10 @@
 
 In the ever-evolving landscape of online security and user verification, the **Customizable CAPTCHA with Image CRUD Integration** is a cutting-edge solution designed to enhance both the user experience and website security. This innovative system combines a user-friendly frontend, a robust backend, allowing website administrators to create and manage their own CAPTCHAs with ease.
 
+### Installation
+1. First of all copy or clone my repository on your device.
+2. To execute all scripts you just have to run the command "npm run start" in the parent folder.
+3. It should start everything up
 ### Key Features
 
 1. **Customizable CAPTCHA:**
