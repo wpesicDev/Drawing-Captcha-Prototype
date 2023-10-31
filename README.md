@@ -5,11 +5,19 @@
 In the ever-evolving landscape of online security and user verification, the **Customizable CAPTCHA with Image CRUD Integration** is a cutting-edge solution designed to enhance both the user experience and website security. This innovative system combines a user-friendly frontend, a robust backend, allowing website administrators to create and manage their own CAPTCHAs with ease.
 
 ### Installation
-1. First of all copy or clone my repository on your device.
+1. First of all copy or clone my repository on your device, install all packages "npm install".
 2. To execute all scripts you just have to run the command "npm run start" in the parent folder.
 
+#### Information
 - Captcha GUI localhost:4200
 - Crud GUI localhost:5000/GUI
+- For the database i have used a basic txt file just for educational purposes this file is located in Drawing-Captcha/Backend/src/
+
+### Software Architecture
+
+![SoftwareArchitecture](./readmeSrc/Architecture.png)  
+
+
 ### Key Features
 
 1. **Customizable CAPTCHA:**
