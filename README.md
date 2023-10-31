@@ -1,5 +1,7 @@
 # Customizable CAPTCHA with Image CRUD Integration / Own Backend for dynamical Vaidation (Prototype)
 
+![Drawing Captcha](./readmeSrc/Drawing%20Captcha.png)  
+
 ## Description
 
 In the ever-evolving landscape of online security and user verification, the **Customizable CAPTCHA with Image CRUD Integration** is a cutting-edge solution designed to enhance both the user experience and website security. This innovative system combines a user-friendly frontend, a robust backend, allowing website administrators to create and manage their own CAPTCHAs with ease.
