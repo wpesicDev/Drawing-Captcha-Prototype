@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "Parent Folder for the whole project",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "setup": "concurrently \"cd ./Backend && npm install\" \"echo Setup has been installed execute npm run start to start server\"",
-    "start": "concurrently \"cd ./Backend && node server.js\" \"cd ./Frontend && npm run serve\""
+    "start": "concurrently \"cd ./Backend && node server.js\" \"cd ./Frontend && npm run serve\"",
+    "test": "node testRunner.js "
+
   },
   "author": "Williams Pesic",
   "license": "MIT",
