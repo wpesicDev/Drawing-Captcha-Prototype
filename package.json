@@ -2,10 +2,10 @@
   "name": "drawing-captcha",
   "version": "1.0.0",
   "description": "Parent Folder for the whole project",
-  "main": "main-script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently \"cd ./Backend && node server.js\" \"cd ./CRUDCaptcha && npm run serve\" \"cd ./GUICaptcha && npm run serve\""
+    "install": "concurrently \"cd ./Backend && npm install\" \"echo Setup has been installed execute npm run start to start server\"",
+    "start": "concurrently \"cd ./Backend && node server.js\" \"cd ./Frontend && npm run serve\""
   },
   "author": "Williams Pesic",
   "license": "MIT",

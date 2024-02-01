@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "fix": "standart --fix",
-    "serve": "live-server --port=3000 --host=localhost"
+    "serve": "node server.js"
   },
   "author": "Williams Pesic",
   "license": "ISC",
