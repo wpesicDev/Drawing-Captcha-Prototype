@@ -1,15 +1,15 @@
 version: '3.8'
 services:
-  Captcha-Backed:
+  captcha-backed:
     build: ./Backend
-    ports:
-      - '3000:tcp'
-    environment:
-      - PORT=3000
-services:
-  Captcha-Frontend:
+    container_name: capcha-backend
+  nginx:
     build: ./Frontend
-    ports:
-      - '4200:tcp'
-    environment:
-      - PORT=4200
+    image: nginx:latest
+    container_name: capcha-webserver
+    restart: always
+    volumes:
+    - ./Frontend/index.html:/usr/share/nginx/html
+
+
+  
