@@ -1,5 +1,5 @@
 const elementList = document.querySelector(".element-list");
-const serverPull = "http://localhost:3000/getElements";
+const serverPull = "http://:3000/getElements";
 const container = document.querySelector(".container")
 const contentContainer = document.querySelector(".content-container")
 const parentContainer = document.querySelector(".parent-container")

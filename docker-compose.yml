@@ -9,7 +9,7 @@ services:
     container_name: capcha-webserver
     restart: always
     volumes:
-    - ./Frontend/index.html:/usr/share/nginx/html
+    - ./Frontend:/usr/share/nginx/html
 
 
   
