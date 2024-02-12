@@ -6,7 +6,7 @@ let clientData = null
 body.onload = initialize
 
 async function initialize() {
-    await pullImage();
+    await pullImage(); 
     await postInfo();
 }
 

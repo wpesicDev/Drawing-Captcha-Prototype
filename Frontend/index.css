@@ -16,7 +16,7 @@ body {
 }
 
 .captcha-container {
-    max-width: 24%;
+    max-width: 50em;
     width: auto;
     display: flex;
     flex-direction: column;
@@ -31,12 +31,23 @@ body {
     align-items: center;
 }
 
+
+.captchta-canvas > * {
+    grid-column: 1;
+    grid-row: 1;
+
+}
+
 .captchta-canvas {
-    width: fit-content;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+    width: max-content;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    margin: 0 auto;
+    max-width: 100%;
+    align-items: end;
+    overflow: overlay;
+    max-height: 90vh;
 }
 
 .cube {

@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  Captcha-Backed:
+    build: ./Backend
+    ports:
+      - '3000:tcp'
+    environment:
+      - PORT=3000
+services:
+  Captcha-Frontend:
+    build: ./Frontend
+    ports:
+      - '4200:tcp'
+    environment:
+      - PORT=4200
